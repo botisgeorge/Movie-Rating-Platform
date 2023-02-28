@@ -1,0 +1,33 @@
+<form method="POST" th:action="@{/api/v1/edit={name}(name=${movie.name})}" xmlns:th="http://www.w3.org/1999/xhtml">
+<label for="name">Name:</label>
+  <input type="text" id="name" name="name" th:value="${movie.name}"><br>
+  <label for="type">Type:</label>
+  <input type="text" id="type" name="type" th:value="${movie.type}"><br>
+  <label for="episodes">Episodes:</label>
+  <input type="text" id="episodes" name="episodes" th:value="${movie.episodes}"><br>
+  <label for="status">Status:</label>
+  <input type="text" id="status" name="status" th:value="${movie.status}"><br>
+  <label for="aired">Aired:</label>
+  <input type="text" id="aired" name="aired" th:value="${movie.aired}"><br>
+  <label for="premiered">Premiered:</label>
+  <input type="text" id="premiered" name="premiered" th:value="${movie.premiered}"><br>
+  <label for="producers">Producers:</label>
+  <input type="text" id="producers" name="producers" th:value="${movie.producers}"><br>
+  <label for="licensors">Licensors:</label>
+  <input type="text" id="licensors" name="licensors" th:value="${movie.licensors}"><br>
+  <label for="studio">Studio:</label>
+  <input type="text" id="studio" name="studio" th:value="${movie.studios}"><br>
+  <label for="genres">Genres:</label>
+  <input type="text" id="genres" name="genres" th:value="${movie.genres}"><br>
+  <label for="theme">Theme:</label>
+  <input type="text" id="theme" name="theme" th:value="${movie.theme}"><br>
+  <label for="demographic">Demographic:</label>
+  <input type="text" id="demographic" name="demographic" th:value="${movie.demographic}"><br>
+  <label for="duration">Duration:</label>
+  <input type="text" id="duration" name="duration" th:value="${movie.duration}"><br>
+  <label for="photo">Photo:</label>
+  <input type="text" id="photo" name="photo" th:value="${movie.photo}"><br>
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" th:text="${movie.description}"></textarea><br>
+  <input type="submit" value="Submit">
+</form>

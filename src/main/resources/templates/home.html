@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div style="height: 50px; width: 100%; background-color: #e6f3ff; color: black; font-size: 24px; line-height: 50px; text-align: center;">
+    Media Search
+    <a href="http://localhost:8080/api/v1/login" style="float:right;">Login</a>
+    <a th:href="@{/api/v1/user={username}(username=${username})}" style="float:right; margin-right: 10px;">Account</a>
+
+</div>
+
+<hr>
+<div style="padding-bottom: 50px; padding-top: 50px;">
+    <form id="search-form" method="get">
+        <div style="text-align: center;">
+            <input type="text" id="search-input" placeholder="Search for a movie" style="width: 500px;">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+    <form id="search-user-form" method="get">
+        <div style="text-align: center;">
+            <input type="text" id="search-user" placeholder="Search for another user" style="width: 500px;">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
+<hr>
+<div style="text-align: center;">
+    <p>Newly added media:</p>
+    <img src="https://m.media-amazon.com/images/M/MV5BYTU3NWI5OGMtZmZhNy00MjVmLTk1YzAtZjA3ZDA3NzcyNDUxXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_.jpg" width="135" height="200">
+    <img src="https://flxt.tmsimg.com/assets/p13837077_b_v8_aa.jpg" width="135" height="200">
+    <img src="https://m.media-amazon.com/images/M/MV5BYjY2ZDM5NTItMjEwYS00YjRiLWE4OGItMTNhYTNmYmY3ZDUzXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg" width="135" height="200">
+    <img src="https://de.web.img3.acsta.net/pictures/22/09/06/14/11/0603895.jpg" width="135" height="200">
+    <img src="https://m.media-amazon.com/images/M/MV5BOGJlNDM3ZjktOTNiNy00YmNmLWJlOGYtNDM4MTI2ZjRjOTNmXkEyXkFqcGdeQXVyNjc3OTE4Nzk@._V1_.jpg" width="135" height="200">
+    <img src="https://static.metacritic.com/images/products/movies/9/f62b27bb506139ad7bb5ce70fca025b9.jpg" width="135" height="200">
+    <img src="https://cdn.myanimelist.net/images/anime/13/33465.jpg" width="135" height="200">
+    <img src="https://m.media-amazon.com/images/M/MV5BZWEwNzQ4NzUtMWRmYS00NDdiLTg5NDItODA5M2M4YTM0ZTE2XkEyXkFqcGdeQXVyMTAzNjU2NjM1._V1_.jpg" width="135" height="200">
+</div>
+<hr>
+</body>
+</html>
+
+<script>
+  document.getElementById("search-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the form from submitting
+    var searchTerm = document.getElementById("search-input").value;
+    this.action = "/api/v1/movie=" + searchTerm; // set the action attribute to the desired URL
+    this.submit(); // submit the form
+  });
+</script>
+
+<script>
+  document.getElementById("search-user-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the form from submitting
+    var searchTerm = document.getElementById("search-user").value;
+    this.action = "/api/v1/user=" + searchTerm; // set the action attribute to the desired URL
+    this.submit(); // submit the form
+  });
+</script>
+

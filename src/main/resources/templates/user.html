@@ -1,0 +1,24 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile Page</title>
+</head>
+<body>
+<div th:text="${user.username}" style="height: 50px; width: 100%; background-color: #e6f3ff; color: black; font-size: 24px; line-height: 50px; text-align: left;">
+</div>
+<a href="http://localhost:8080/api/v1/home" style="float:right;">Home</a>
+<hr>
+<div style="display: flex;">
+    <div style="margin-right: 20px;">
+        <img th:src="${user.profilePhoto}" alt="Profile photo" style="width: 200px; height: 200px;">
+        <div th:text="${'Last online: ' + user.active + ' days ago'}"></div>
+        <div th:text="${'Gender: ' + user.gender}"></div>
+        <div th:text="${'Location: ' + user.location }"></div>
+    </div>
+    <div>
+        <div>Description: </div>
+        <div th:text="${user.description}"></div>
+    </div>
+</div>
+</body>
+</html>

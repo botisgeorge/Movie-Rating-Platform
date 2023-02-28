@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comment Page</title>
+</head>
+<body style="text-align:center;">
+<form method="POST" th:action="@{/api/v1/movie=+${movieName}/comment}">>
+
+    <label for="comment">Write your comment here:</label>
+    <br>
+    <textarea id="comment" name="comment"></textarea>
+    <br>
+    <input type="hidden" name="name" value="{{movie.name}}">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

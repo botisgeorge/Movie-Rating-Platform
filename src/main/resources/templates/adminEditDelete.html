@@ -1,0 +1,126 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table style="border-collapse: collapse; width: 100%;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Name</th>
+        <th style="border: 1px solid black;">Type</th>
+        <th style="border: 1px solid black;">Episodes</th>
+        <th style="border: 1px solid black;">Status</th>
+        <th style="border: 1px solid black;">Aired</th>
+        <th style="border: 1px solid black;">Premiered</th>
+        <th style="border: 1px solid black;">Producers</th>
+        <th style="border: 1px solid black;">Licensors</th>
+        <th style="border: 1px solid black;">Studio</th>
+        <th style="border: 1px solid black;">Genres</th>
+        <th style="border: 1px solid black;">Theme</th>
+        <th style="border: 1px solid black;">Demographic</th>
+        <th style="border: 1px solid black;">Duration</th>
+        <th style="border: 1px solid black;">Rating</th>
+        <th style="border: 1px solid black;">Description</th>
+        <th style="border: 1px solid black;">Actions</th>
+    </tr>
+    <tr th:each="movie : ${movies}" style="border: 1px solid black;">
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.name}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.type}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.episodes}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.status}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.aired}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.premiered}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.producers}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.licensors}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.studios}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.genres}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.theme}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.demographic}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.duration}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${movie.rating}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="min-height:5em; max-height:15em; overflow:auto; word-wrap:break-word;">
+                <p th:text="${movie.description}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <form th:action="@{/api/v1/edit={name}(name=${movie.name})}" method="get">
+                <input type="hidden" name="name" th:value="${movie.name}">
+                <input type="submit" value="Edit">
+            </form>
+            <form th:action="@{/api/v1/delete={name}(name=${movie.name})}" method="get">
+                <input type="hidden" name="name" th:value="${movie.name}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="/api/v1/admin" class="btn btn-primary">Add new movie</a>
+<a href="/api/v1/adminDeleteUsers" class="btn btn-primary">Delete users</a>
+
+<script>
+    function deleteMovie(btn) {
+        var id = btn.getAttribute("data-id");
+        // call the delete endpoint with the id
+    }
+
+    function editMovie(btn) {
+        var id = btn.getAttribute("data-id");
+        // redirect to the edit page with the id
+    }
+</script>
+</body>
+
+
+</html>

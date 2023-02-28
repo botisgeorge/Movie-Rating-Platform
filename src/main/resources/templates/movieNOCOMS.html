@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Page</title>
+</head>
+<body style="text-align:center;">
+<div style="height: 50px; width: 100%; background-color: #e6f3ff; color: black; font-size: 24px; line-height: 50px; text-align: center;"><a href="http://localhost:8080/api/v1/home">Home</a></div>
+<div style="display:flex; padding-top: 5px;">
+    <div style="width: 50%;">
+        <img th:src="${movie.photo}" alt="Movie Cover" style="width: 300px; height: 400px;">
+        <div style="text-align:left;">
+            <div th:text="${'Type: ' + movie.type}"></div>
+            <br>
+            <div th:text="${'Episodes: ' + movie.episodes}"></div>
+            <br>
+            <div th:text="${'Status: ' + movie.status}"></div>
+            <br>
+            <div th:text="${'Aired: ' + movie.aired}"></div>
+            <br>
+            <div th:text="${'Premiered: ' + movie.premiered}"></div>
+            <br>
+            <div th:text="${'Producers: ' + movie.producers}"></div>
+            <br>
+            <div th:text="${'Licensors: ' + movie.licensors}"></div>
+            <br>
+            <div th:text="${'Studio: ' + movie.studios}"></div>
+            <br>
+            <div th:text="${'Genres: ' + movie.genres}"></div>
+            <br>
+            <div th:text="${'Theme: ' + movie.theme}"></div>
+            <br>
+            <div th:text="${'Demographic: ' + movie.demographic}"></div>
+            <br>
+            <div th:text="${'Duration: ' + movie.duration}"></div>
+            <br>
+            <div th:text="${'Rating: ' + movie.rating + '/5'}"></div>
+        </div>
+    </div>
+    <div style="width: 50%;">
+        <div th:text="${'Description: ' + movie.description}"></div>
+        <br>
+    </div>
+</div>
+<div style="margin-top:20px;">
+    <div style="margin-top:10px;">
+        <div style="margin-top:10px;">
+            <h3>Previous comments:</h3>
+            <div class="comments">
+                <div class="comments">
+                    <div th:each="comment : ${comments}" style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">
+                        <div th:text="${comment.comment}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
